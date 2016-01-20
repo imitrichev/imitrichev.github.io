@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print">
+
+<!--enable MathJax $ for inline formulae-->
+<!--$$ is used for display as well-->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<!--enable MathJax-->
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>mech_optimiz</title>
+  </head>
+
+  <body>
+<!--header-->
+    <header>
+      <div class="inner">
+        <h1>mech_optimiz</h1>
+        <h2><table style="border:0"><td style="border:0">mech_optimiz - software that assists in construction of microkinetic mechanisms of heterogeneous catalytic reaction</td><td style="border:0; width:10%"><a href="main_ru.html" style="font-family:'Times New Roman'; color:#dd5555">Русская версия&nbsp<img src="https://upload.wikimedia.org/wikipedia/en/f/f3/Flag_of_Russia.svg" width="50" vspace="10px"></img></a></td></table></h2>
+        <a href="https://github.com/imitrichev" class="button"><small>The Door to</small> GitHub</a>
+      </div>
+    </header>
+
+<!--main content-->
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+
+          <h3> <a id="info" class="anchor" href="#info" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is mech_optimiz?
+		  		</h3>
+					<div style="text-align:center"><img src="../images/mech_optimiz.png" alt="mech_optimiz logo" vspace="10px"><p style="text-align:center; color: red; font-style: italic">Project logo</p></img></div>
+					<p><font size="6em" color="#110000">mech_optimiz</font> is a software for parameter estimation in microkinetic reaction mechanisms of catalytic processes.</p>
+					<p>It could be used by scientists to build and verify kinetic models as well as by engineers to create detailed
+                    and lumped kinetic models that could be incorporated into modern CFD codes (FLUENT, COMSOL, Star-CCM+).</p>
+					<p>The distinctive features are:
+					<ul>
+					<li>Use of parallel calculations and evolutionary method for parameter estimation</li>
+					<li>Sobol sequence used in generating random search points</li>
+					<li>Sensitivity/rate control analysis</li>
+					<li>Thermodynamic consistency of parameter set</li>
+					<li>Works with mongodb, can use database for kinetic parameters</li>
+					<li>Construction of confidence intervals</li>
+					<li>A set of inbuilt useful tools</li>
+					</ul>
+                    The example of results comparison is depicted at figure 1.
+					</p>
+                    <p style="text-align:center; color: red; font-style: italic">
+					<img src="../images/solver_comparison.png" alt="solver comparison" vspace="10px">Figure 1. Verification of mech_optimiz solver results. Multistep kinetics, over 20 catalytic reaction steps.</img></p>	
+					v. 4.3.1 is current.
+                    <p> The additional information will appear after some time.</p>
+        </section>
+<!--end main content-->
+
+<!--sidebar-->
+        <aside id="sidebar">
+          <p>Based on the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+          <a href="../index.html"><h2>To the main page</h2></a>
+        </aside>
+      </div>
+    </div>
+  
+  </body>
+</html>

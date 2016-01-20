@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print">
+
+<!--enable MathJax $ for inline formulae-->
+<!--$$ is used for display as well-->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<!--enable MathJax-->
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>mech_optimiz</title>
+  </head>
+
+  <body>
+<!--header-->
+    <header>
+      <div class="inner">
+        <h1>mech_optimiz</h1>
+        <h2><table style="border:0"><td style="border:0">mech_optimiz - программное обеспечение для автоматизированного построения микрокинетических механизмов гетерогенно-каталитических реакций</td><td style="border:0; width:10%"><a href="main.html" style="font-family:'Times New Roman'; color:magenta">English version&nbsp<img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" width="50" vspace="10px"></img></a></td></table></h2>
+        <a href="https://github.com/imitrichev" class="button"><small>The Door to</small> GitHub</a>
+      </div>
+    </header>
+
+<!--main content-->
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+
+          <h3> <a id="info" class="anchor" href="#info" aria-hidden="true"><span class="octicon octicon-link"></span></a>Что такое mech_optimiz?
+		  		</h3>
+					<div style="text-align:center"><img src="../images/mech_optimiz.png" alt="mech_optimiz logo" vspace="10px"><p style="text-align:center; color: red; font-style: italic">Логотип проекта</p></img></div>
+					<p><font size="6em" color="#110000">mech_optimiz</font> - это программа для оценки кинетических параметров микрокинетических механизмов реакций в каталитических процессах.</p>
+					<p>Оно может быть использовано как учеными для построения и проверки кинетических моделей, так и инженерами для создания детальных и сокращенных кинетических моделей, которые могут быть использованы в современных CFD-кодах (FLUENT, COMSOL, Star-CCM+).</p>
+					<p>Отличительные особенности ПО:
+					<ul>
+					<li>Использование параллельных вычислений и эволюционного алгоритма для оценки кинетических параметров</li>
+					<li>Последовательности Соболя для генерирования случайных точек в процессе поиска</li>
+					<li>Анализ чувствительности/степени управления скоростью</li>
+					<li>Термодинамическая непротиворечивость кинетических параметров</li>
+					<li>Возможна работа с mongodb с использованием база данных кинетических параметров</li>
+					<li>Построение доверительных интервалов</li>
+					<li>Набор встроенных полезных инструментов</li>
+					</ul>
+                    Пример сравнения результатов приведен на рисунке 1.
+					</p>
+                    <p style="text-align:center; color: red; font-style: italic">
+					<img src="../images/solver_comparison.png" alt="solver comparison" vspace="10px">Рисунок 1. Верификация результатов решателей mech_optimiz. Многостадийная кинетика, более 20 стадий реакции.</img></p>	
+					v. 4.3.1 является текущей.
+                    <p> Дополнительная информация появится через некоторое время.</p>
+        </section>
+<!--end main content-->
+
+<!--sidebar-->
+        <aside id="sidebar">
+          <p>Создано на основе темы Architect автора <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+          <a href="../index.html"><h2>На главную</h2></a>
+        </aside>
+      </div>
+    </div>
+  
+  </body>
+</html>
