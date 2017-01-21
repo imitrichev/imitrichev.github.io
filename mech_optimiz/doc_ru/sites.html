@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>mech_optimiz: Частицы, занимающие несколько активных центров</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_extra.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Mech-2.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">mech_optimiz
+   &#160;<span id="projectnumber">4.4.1</span>
+   </div>
+   <div id="projectbrief">microkinetic mechanism investigation tool</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="pages.html"><span>Описания</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('sites.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Частицы, занимающие несколько активных центров </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="toc"><h3>Оглавление</h3>
+<ul><li class="level1"><a href="#sites1">Спецификация частиц, занимающих несколько активных центров</a><ul><li class="level2"><a href="#sites1_1">Определение частиц, занимающих несколько активных центров, в cti-файле</a></li>
+<li class="level2"><a href="#sites1_2">Определение частиц, занимающих несколько активных центров, в inp-файле</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#sites2">Перевод единиц предэкспоненциальных множителей</a></li>
+</ul>
+</div>
+<div class="textblock"><h1><a class="anchor" id="sites1"></a>
+Спецификация частиц, занимающих несколько активных центров</h1>
+<p><em>Cantera</em> (и <em>mech_optimiz</em>) имеет поддержку поверхностных реакций, включающих частицы, занимающие несколько активных центров на поверхности (<em>multiple site species</em>). Для конвертера файлов формата <em>cti</em> в формат <em>ctml</em> (<em>cti2ctml</em>) данная возможность добавлена в декабре 2005 года Prof. D. Goodwin (&lt;a href ="http://code.google.com/p/cantera/source/browse/cantera/trunk/interfaces/python/ctml_writer.py?r=1906#564" style="color: #FF9933&gt;"строки кода, подтверждающие это) </p><div class="fragment"><div class="line"><span class="keywordflow">if</span> <span class="keyword">self</span>._size != 1.0:</div><div class="line">    s.addChild(<span class="stringliteral">&quot;size&quot;</span>,<span class="keyword">self</span>._size)</div></div><!-- fragment --> <h2><a class="anchor" id="sites1_1"></a>
+Определение частиц, занимающих несколько активных центров, в cti-файле</h2>
+<p>Конвертер <em>cti2ctml</em>, переводящий файлы <em>cti</em> в <em>ctml</em>-формат, корректно обрабатывает опцию <code>size</code> (подробнее, см. &lt;a href ="https://groups.yahoo.com/neo/groups/Cantera/conversations/topics/1084" style="color: #FF9933&gt;" ответ Prof. D. Goodwin . Таким образом, в <em>cti</em>-файлах возможно использовать опцию <code>size</code> = &lt;число&gt; при объявлении частиц. Например, кислород <em>O2(S1)</em>, занимающий 2 активных центра, объявляется следующим образом: </p><div class="fragment"><div class="line">species(name = <span class="stringliteral">&#39;O2(S1)&#39;</span>, atoms = <span class="stringliteral">&#39;surf_site:2&#39;</span>, size = 2, ...) </div></div><!-- fragment --><p> Эта возможность используется в <em>mech_optimiz</em>, поскольку взаимодействие <em>mech_optimiz</em> и <em>Cantera</em> осуществляется, в том числе, путем создания объекта класса "идеальный газ" (<code>IdealGas</code>) <em>Cantera</em>, который, в свою очередь, использует <em>xml</em>(<em>ctml</em>)-файл с кинетическим механизмом. </p>
+<h2><a class="anchor" id="sites1_2"></a>
+Определение частиц, занимающих несколько активных центров, в inp-файле</h2>
+<p>В inp файле объявить частицу, занимающую два активных центра, можно так: </p><div class="fragment"><div class="line">O2(S1)/2/ </div></div><!-- fragment --><p> Данный формат записи полностью поддерживается программным пакетом <em>Surface Chemkin</em>. Для использования в <em>mech_optimiz</em>, в <em>.inp</em>-файл следует добавить также строки, характеризующие, сколько атомов активной поверхности включено в активный центр данного типа. Так как два активных центра имеют другое число атомов, их надо объявить отдельно, маркировав, например, как <em>S1:</em> </p><div class="fragment"><div class="line">!ALIAS (S) Ce:1</div><div class="line">!ALIAS (S1) Ce:2</div><div class="line">!ALIAS (S2) Au:1</div></div><!-- fragment --><p> Ключевое слово <code>!ALIAS</code> позволяет не указывать атомы активного центра в названии частицы и не требует наличия обязательного объявления частиц в совокупности с коэффициентами термодинамических полиномов (например, в файле <em>mech.dat</em>) для определения атомов в частице.</p>
+<h1><a class="anchor" id="sites2"></a>
+Перевод единиц предэкспоненциальных множителей</h1>
+<p>Необходимость в переводе единиц возникает, когда в кинетической схеме присутствуют реакции порядка, выше первого. Когда в реакции участвуют 2 и более реагента, предэкспоненциальный множитель обычно приводят в размерности константы скорости, а не в \(с^{-1}\), как для реакций первого порядка. Чтобы получить значения предэкспоненциального множителя \(A_s\) в \(с^{-1}\) для реакции второго порядка, необходимо умножить <em>A</em> на число активных центров \(\Gamma\), [моль/м2], для данного катализатора: </p><p class="formulaDsp">
+\[ A_s = A_{dim} \Gamma \]
+</p>
+<p> Если некоторый реагент занимает несколько активных центров, <em>A</em>, приведенное в размерности константы скорости, не изменяется (этот принцип используется и в <em>Cantera</em>, и в <em>mech_optimiz</em>). \(A_{dim} = const\), \(k_{dim}=const\). <br />
+ Это приводит к тому, что для аналогичных кинетических параметров и степеней заполнения поверхности реагентами скорость реакции, включающей один из реагентов, занимающий два активных центра, на единицу поверхности уменьшится в два раза: \(\sigma_{new}=2, \sigma_{old}=1\) \(\rightarrow\) \(r_{new}=r_{old}/2\); <br />
+ Это соответствует снижению концентрации одного из реагентов (действующих поверхностей - аналог действующих масс) в два раза. <br />
+ Предэкспоненциальный множитель в \(c^{-1}\) может быть выражен следующим образом: </p><p class="formulaDsp">
+\[ A_s=A_{dim} \Gamma ^{(m-1)}/ \prod_i \sigma_i, \]
+</p>
+<p> где <em>i</em> - реагент, <em>m</em> - число реагентов-поверхностных частиц. <br />
+ Данным образом в <em>mech_optimiz</em> реализована работа с кинетическими параметрами для случая наличия частиц, занимающих несколько активных центров. </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Документация по mech_optimiz. Последние изменения: Сб 21 Янв 2017 21:23:52. Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+  </ul>
+</div>
+</body>
+</html>

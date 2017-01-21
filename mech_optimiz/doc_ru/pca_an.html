@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>mech_optimiz: Анализ данных с помощью метода главных компонент</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_extra.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Mech-2.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">mech_optimiz
+   &#160;<span id="projectnumber">4.4.1</span>
+   </div>
+   <div id="projectbrief">microkinetic mechanism investigation tool</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="pages.html"><span>Описания</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('pca_an.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Анализ данных с помощью метода главных компонент </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>На данной странице обсуждается реализация МГК в <em>mech_optimiz</em>.</p>
+<p>Метод главных компонент (МГК, англ. Principal component analysis, PCA) - одно из средств анализа данных, позволяющих выявить скрытые закономерности в данных.</p>
+<p>Суть метода главных компонент заключается в понижении размерности данных <a href="http://rcs.chemometrics.ru/Tutorials/pca.htm">(Метод Главных Компонент (PCA), © 2008 Алексей Померанцев, Российское хемометрическое общество)</a>, переходе к системе координат меньшей размерности. Каждая новый координатный вектор (главная компонента) - есть линейная комбинация старых координатных векторов, то есть параметров. Коэффициенты линейного разложение главной компоненты по базису старых координатных векторов называются нагрузками. Все точки набора данных называют образцами. Координаты всех образцов в новом базисе называются счетами.</p>
+<p>Мы использовали NIPALS-алгоритм <a class="el" href="citelist.html#CITEREF_эсбенсен2005анализ">[14]</a> вычисления главных компонент, который вычисляет их итерационно, одну за другой, начиная от самых важных (от первой), объясняющих наибольшую часть остаточной дисперсии.</p>
+<p>Результаты нахождения первых 4 главных компонент для задачи "Ирисы Фишера" в различных программных средствах: </p><div class="fragment"><div class="line">VidaExpert:</div><div class="line">1:</div><div class="line">Overall dispers: 0.727704</div><div class="line">0.522576 -0.262846 0.581265 0.565647</div><div class="line">2:</div><div class="line">Overall dispers: 0.958010</div><div class="line">0.371977 0.925719 0.020786 0.065153</div><div class="line">3:</div><div class="line">Overall dispers: 0.994848</div><div class="line">0.721150 -0.242013 -0.141211 -0.633587</div><div class="line">4:</div><div class="line">Overall dispers: 1.000000</div><div class="line">0.261707 -0.124038 -0.801098 0.523800</div><div class="line">==============</div><div class="line">mech_optimiz: (./mech_optimiz data1.txt data1.txt-1)</div><div class="line">PC1</div><div class="line">Loadings 0.52107 -0.269337 0.580413 0.564857</div><div class="line">ERV= 0.729624</div><div class="line">PC2</div><div class="line">Loadings 0.377409 0.9233 0.0244858 0.0669384</div><div class="line">ERV= 0.958132</div><div class="line">PC3</div><div class="line">Loadings -0.719566 0.244377 0.142121 0.634276</div><div class="line">ERV= 0.994821</div><div class="line">PC4</div><div class="line">Loadings 0.261291 -0.123511 -0.80145 0.523593</div><div class="line">ERV= 1</div><div class="line">===============</div></div><!-- fragment --><p> На языке R пример:</p>
+<p><a href="https://freshbiostats.wordpress.com/2013/09/04/an-example-of-principal-components-analysis/">https://freshbiostats.wordpress.com/2013/09/04/an-example-of-principal-components-analysis/</a></p>
+<p>Также результаты по ирисам приведены в: <a href="https://www.scss.tcd.ie/Brett.Houlding/Index/ST3011_files/ST3011slides4%20(2).pdf">https://www.scss.tcd.ie/Brett.Houlding/Index/ST3011_files/ST3011slides4%20(2).pdf</a></p>
+<p>cлайд 14 (представлен ниже): </p><div class="image">
+<img src="iris_pca1.png" alt="iris_pca1.png"/>
+</div>
+<p> <em> PCA, ирисы Фишера (Бретт Хаулдинг) </em></p>
+<p>Результаты всех источников совпадают, что позволяет сделать вывод о корректности работы <em>mech_optimiz</em> по вычислению главных компонент (по крайней мере, на данном тесте). </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Документация по mech_optimiz. Последние изменения: Сб 21 Янв 2017 21:23:52. Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+  </ul>
+</div>
+</body>
+</html>

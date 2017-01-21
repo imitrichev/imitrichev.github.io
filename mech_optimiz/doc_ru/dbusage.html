@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>mech_optimiz: Работа с базой данных реакций</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_extra.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Mech-2.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">mech_optimiz
+   &#160;<span id="projectnumber">4.4.1</span>
+   </div>
+   <div id="projectbrief">microkinetic mechanism investigation tool</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="pages.html"><span>Описания</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('dbusage.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Работа с базой данных реакций </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="toc"><h3>Оглавление</h3>
+<ul><li class="level1"><a href="#dbreact1">Импорт и экспорт базы данных реакций</a></li>
+<li class="level1"><a href="#dbreact2">Объявление реакции</a><ul><li class="level2"><a href="#dbreact2_1">Синтаксис документа</a></li>
+<li class="level2"><a href="#dbreact2_2">&quot;reaction&quot; - формула реакции. Ключи &quot;reactants&quot;, &quot;products&quot;</a></li>
+<li class="level2"><a href="#dbreact2_3">Прямые и обратные стадии реакции &quot;forward&quot; и &quot;backward&quot;</a><ul><li class="level3"><a href="#dbreact2_3_1">Вложенные элементы</a></li>
+</ul>
+</li>
+<li class="level2"><a href="#dbreact2_4">Реагенты &quot;reactants&quot; и продукты &quot;products&quot;</a></li>
+<li class="level2"><a href="#dbreact2_5">Материал катализатора &quot;material&quot;</a></li>
+<li class="level2"><a href="#dbreact2_6">Метод получения информации о кинетике процесса &quot;method&quot;</a></li>
+<li class="level2"><a href="#dbreact2_7">Ссылка на литературный источник и комментарий</a></li>
+<li class="level2"><a href="#dbreact2_8">Пример записи из базы данных</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="textblock"><p>По умолчанию <em>mech_optimiz</em> использует коллекцию reactions (в <em>NOSql</em> подходе, используемом <em>mongodb</em>, это чем-то напоминает таблицу реляционной базы данных) базы данных <em>mreactions</em>.</p>
+<p><br />
+ Подключение к базе данных осуществляется от имени пользователя <em>mouser</em> с паролем <em>1357mo</em> <br />
+ <em>mech_optimiz</em> распознает данные о реакциях в формате <em>JSON</em>, поэтому при объяснении структуры записей мы ориентируемся на <em>JSON</em>-формат представления данных в <em>mongodb</em>.</p>
+<h1><a class="anchor" id="dbreact1"></a>
+Импорт и экспорт базы данных реакций</h1>
+<p>Для того, чтобы импортировать все документы из текстового файла в <em>JSON</em>-формате reactions.JSON в базу данных, в консоли linux необходимо ввести команду: </p><div class="fragment"><div class="line">mongoimport --port 27651 -u mouser --db mreactions --collection reactions --file reactions.json </div></div><!-- fragment --><p> Если вы хотите не только дополнить/исправить базу данных, но и полностью ее переписать (то есть, вначале удалить старое содержимое), то добавьте опцию --<code>drop</code>: </p><div class="fragment"><div class="line">mongoimport --port 27651 -u mouser --db mreactions --collection reactions --drop --file reactions.json </div></div><!-- fragment --><p> Наоборот, экспортировать данные из БД в файл формата <em>JSON</em> можно следующим образом: </p><div class="fragment"><div class="line">mongoexport --port 27651 -u mouser --db mreactions --collection reactions --out reactions_exported.json </div></div><!-- fragment --> <dl class="section user"><dt>О заполнении полей</dt><dd></dd></dl>
+<p>Документ - аналог записи в реляционной БД. Документ состоит из множества пар ключ : значение, имена ключей (необязательно) и значений (обязательно) заключаются в двойные кавычки: </p><div class="fragment"><div class="line"><span class="stringliteral">&quot;field&quot;</span> : <span class="stringliteral">&quot;value&quot;</span> </div></div><!-- fragment --><p> Документ выделяется фигурными скобками {} и может содержать множество пар ключ : значение, отдельные пары отделяются друг от друга запятой: </p><div class="fragment"><div class="line">{<span class="stringliteral">&quot;field&quot;</span> : <span class="stringliteral">&quot;value&quot;</span>, <span class="stringliteral">&quot;field2&quot;</span> : <span class="stringliteral">&quot;value2&quot;</span>} </div></div><!-- fragment --><p> Любой документ в любом поле может содержать значение-массив: </p><div class="fragment"><div class="line">{<span class="stringliteral">&quot;field&quot;</span> : <span class="stringliteral">&quot;value&quot;</span>, <span class="stringliteral">&quot;field2&quot;</span> : [<span class="stringliteral">&quot;item1&quot;</span>: <span class="stringliteral">&quot;value1&quot;</span>, <span class="stringliteral">&quot;item2&quot;</span>: <span class="stringliteral">&quot;value2&quot;</span>] } </div></div><!-- fragment --><p> Массив записывается с помощью квадратных скобок: []. <br />
+ Пробелы перед/после двоеточий и скобок не обязательны, но расставлены для наглядности.</p>
+<h1><a class="anchor" id="dbreact2"></a>
+Объявление реакции</h1>
+<h2><a class="anchor" id="dbreact2_1"></a>
+Синтаксис документа</h2>
+<p>Пример синтаксиса объявления реакции: </p><div class="fragment"><div class="line">{ <span class="stringliteral">&quot;reaction&quot;</span> : <span class="stringliteral">&quot;NO(*) = Pt(*) + NO&quot;</span>, <span class="stringliteral">&quot;reactants&quot;</span> : [<span class="stringliteral">&quot;NO(*)&quot;</span>], <span class="stringliteral">&quot;products&quot;</span> : [<span class="stringliteral">&quot;Pt(*)&quot;</span>, <span class="stringliteral">&quot;NO&quot;</span>], <span class="stringliteral">&quot;material&quot;</span> : { <span class="stringliteral">&quot;name&quot;</span> : <span class="stringliteral">&quot;Pt&quot;</span>, <span class="stringliteral">&quot;face&quot;</span> : <span class="stringliteral">&quot;111&quot;</span>, <span class="stringliteral">&quot;type&quot;</span>: <span class="stringliteral">&quot;surface&quot;</span>}, <span class="stringliteral">&quot;forward&quot;</span> : { <span class="stringliteral">&quot;A&quot;</span> : <span class="stringliteral">&quot;3.16e+15&quot;</span>, <span class="stringliteral">&quot;E&quot;</span> : <span class="stringliteral">&quot;33.1&quot;</span>, <span class="stringliteral">&quot;Eunits&quot;</span> : <span class="stringliteral">&quot;kcal/mol&quot;</span>, <span class="stringliteral">&quot;eta&quot;</span> : [ { <span class="stringliteral">&quot;intermediates&quot;</span> : [ { <span class="stringliteral">&quot;name&quot;</span> : <span class="stringliteral">&quot;O(*)&quot;</span>, <span class="stringliteral">&quot;coverage&quot;</span> : <span class="stringliteral">&quot;0.25&quot;</span> } ], <span class="stringliteral">&quot;effect&quot;</span> : <span class="stringliteral">&quot;-2.90&quot;</span> }, { <span class="stringliteral">&quot;intermediates&quot;</span> : [ { <span class="stringliteral">&quot;name&quot;</span> : <span class="stringliteral">&quot;NO(*)&quot;</span>, <span class="stringliteral">&quot;coverage&quot;</span> : <span class="stringliteral">&quot;0.25&quot;</span> } ], <span class="stringliteral">&quot;effect&quot;</span> : <span class="stringliteral">&quot;-3.50&quot;</span> } ], <span class="stringliteral">&quot;eps&quot;</span> : [ { <span class="stringliteral">&quot;intermediates&quot;</span> : [ { <span class="stringliteral">&quot;name&quot;</span> : <span class="stringliteral">&quot;O(*)&quot;</span>, <span class="stringliteral">&quot;coverage&quot;</span> : <span class="stringliteral">&quot;0.25&quot;</span> } ], <span class="stringliteral">&quot;E&quot;</span> : <span class="stringliteral">&quot;17.1&quot;</span> }, { <span class="stringliteral">&quot;intermediates&quot;</span> : [ { <span class="stringliteral">&quot;name&quot;</span> : <span class="stringliteral">&quot;NO(*)&quot;</span>, <span class="stringliteral">&quot;coverage&quot;</span> : <span class="stringliteral">&quot;0.25&quot;</span> } ], <span class="stringliteral">&quot;E&quot;</span> : <span class="stringliteral">&quot;27&quot;</span> } ] }, <span class="stringliteral">&quot;backward&quot;</span> : { <span class="stringliteral">&quot;S0&quot;</span> : <span class="stringliteral">&quot;0.88&quot;</span>, <span class="stringliteral">&quot;E&quot;</span> : <span class="stringliteral">&quot;0.0&quot;</span>, <span class="stringliteral">&quot;eta&quot;</span> : [ { <span class="stringliteral">&quot;intermediates&quot;</span> : [ { <span class="stringliteral">&quot;name&quot;</span> : <span class="stringliteral">&quot;O(*)&quot;</span>, <span class="stringliteral">&quot;coverage&quot;</span> : <span class="stringliteral">&quot;0.25&quot;</span> } ], <span class="stringliteral">&quot;effect&quot;</span> : <span class="stringliteral">&quot;-0.1663&quot;</span> } ] }, <span class="stringliteral">&quot;method&quot;</span> : [<span class="stringliteral">&quot;molecular beam experiments&quot;</span>], <span class="stringliteral">&quot;ref&quot;</span> : <span class="stringliteral">&quot;Campbell, C. T., Ertl, G., &amp; Segner, J. (1982). A molecular beam study on the interaction of NO with a Pt (111) surface. Surface Science, 115(2), 309-322.&quot;</span>, <span class="stringliteral">&quot;doi&quot;</span>: <span class="stringliteral">&quot;10.1016/0039-6028(82)90411-3&quot;</span>, <span class="stringliteral">&quot;comment&quot;</span> : <span class="stringliteral">&quot;defect sites. -0.1663 = log10(0.6/0.88). -2.90= log10(3.98e+12/3.16e+15). -3.50= log10(1e+12/3.16e+15)&quot;</span>} </div></div><!-- fragment --><p> На данный момент список поддерживаемых ключей первого уровня (находятся непосредственно в записи, не вложены) таков: </p><ol>
+<li>
+"reaction" </li>
+<li>
+"reactants" </li>
+<li>
+"products" </li>
+<li>
+"material" </li>
+<li>
+"forward" </li>
+<li>
+"backward" </li>
+<li>
+"method" </li>
+<li>
+"ref" </li>
+<li>
+"comment" </li>
+</ol>
+<h2><a class="anchor" id="dbreact2_2"></a>
+"reaction" - формула реакции. Ключи "reactants", "products"</h2>
+<dl class="section user"><dt>Правила записи реакций таковы:</dt><dd><ol>
+<li>
+Место на катализаторе (активный центр) обозначается звездочкой: Pt(*). Если активных центров несколько (несколько кристаллических граней, или катализатор сложного состава), они обозначены в кинетическом механизме в формате <em></em>.inp/.cti как (S), (S1) и т.п.. В базе данных такие активные центры должны быть обозначены, как ..(*), ..(*1) и т.д., т.е., буквы S/s заменяются на *. Буквы B/b, обозначающие сплошную фазу катализатора, заменяются только на заглавную B. </li>
+<li>
+Между правой и левой частью реакции ставится знак равенства =. </li>
+</ol>
+</dd></dl>
+<p>Правила записи реагентов и продуктов таковы: </p><ol>
+<li>
+Реагенты и продукты (р./п.) являются строками. Не разрешается ставить пробелы перед названием р./п. и после него. Добавление пробела приведет к тому, что данная реакция никогда не будет использована <em>mech_optimiz</em>, поскольку ее р./п. не совпадут с представлением, имеющимся в фалах .inp кинетического механизма. </li>
+<li>
+<p class="startli">Дублирующиеся реагенты/продукты записываются с помощью стехиометрических коэффициентов, указанных без пробела перед их названием: </p><ul>
+<li>
+неправильно: "products" : ["O(*)", "O(*)", "Pt(*)"] </li>
+<li>
+правильно: "products" : ["2O(*)", "Pt(*)"]</li>
+</ul>
+<p class="endli">Любое поле, кроме названия реакции и реагентов/продуктов, можно опустить. </p><dl class="section note"><dt>Заметки</dt><dd>MongoDB не проверяет наличие/отсутствие полей, так как в подходе NoSQL отсутствует схема данных. Наличие названия реакции, равно как и корректность названия/заполнения остальных полей, лежит на пользователе базы данных.</dd></dl>
+</li>
+</ol>
+<h2><a class="anchor" id="dbreact2_3"></a>
+Прямые и обратные стадии реакции "forward" и "backward"</h2>
+<p>Отдельно записывать прямые и обратные реакции не требуется, для этого предназначены поля <code>"forward"</code> и <code>"backward"</code>, которые позволяют задать отдельно кинетические параметры прямой и обратной реакции. Заметим, что в соответствии с принципом микрскопической обратимости, каждая реакция может быть записана как обратимая. Однако, одно из направлений реакции может быть кинетически незначимо - скорость превращения в этом направлении крайне мала. Тогда при составлении записи поле, соответствующее данному направлению (прямой <code>"forward"</code> или обратной <code>"backward"</code> стадию) следует просто опустить. </p>
+<h3><a class="anchor" id="dbreact2_3_1"></a>
+Вложенные элементы</h3>
+<p>Вложенные элементы для полей <code>"forward"</code> и <code>"backward"</code> содержат информацию о кинетических параметрах, которая может быть использована в <em>mech_optimiz</em> для выбора диапазона поиска кинетических параметров. Допускаются следующие элементы: </p><ol>
+<li>
+<code>A</code> - предэкспоненциальный множитель реакции </li>
+<li>
+<code>Aunits</code> - единицы предэкспоненциального множителя реакции </li>
+<li>
+<code>E</code> - энергия активации реакции </li>
+<li>
+<code>Eunits</code> - единицы энергии активации реакции </li>
+<li>
+<code>b</code> - температурный множитель \(T^b\) в модифицированном уравнении Аррениуса </li>
+<li>
+<code>eps</code> - (массив документов) модификатор энергии активации реакции </li>
+<li>
+<code>eta</code> - (массив документов) модификатор предэкспоненциального множителя реакции </li>
+<li>
+<code>mu</code> - (массив документов) модификатор, позволяющий сделать скорость химической реакции пропорциональной доле заполнения поверхности некоторой частицей в той или иной степени </li>
+<li>
+<code>ord</code> - (массив документов) модификатор (частного) порядка реакции по веществу </li>
+</ol>
+<p>Подробнее о значении <code>eps</code>, <code>eta</code>, <code>mu</code> читайте: Coltrin et. al. (2000) [1].</p>
+<p>Параметр Aunits может принимать следующие значения:</p><ul>
+<li>cm2/mol/s</li>
+<li>m2/mol/s</li>
+<li>cm2/kmol/s</li>
+<li>m2/kmol/s</li>
+<li>mol/m2/s</li>
+<li>mol/cm2/s</li>
+<li>1/s <br />
+ Если параметр не указан, принимается, что <code>A</code> дано в единицах по умолчанию. <br />
+ Единицы по умолчанию для <code>A</code> - 1/с (1/s). Параметр <code>Aunits</code> может принимать следующие значения:</li>
+<li>eV</li>
+<li>cal/mol</li>
+<li>kcal/mol</li>
+<li>J/mol</li>
+<li>kJ/mol 1 термохимическая калория (cal) = 4.184 Дж <br />
+ Если параметр не указан, принимается, что <code>E</code> дано в единицах по умолчанию. Единицы по умолчанию для <code>E</code> - кДж/моль (kJ/mol).</li>
+</ul>
+<p><code>eps</code>, <code>eta</code>, <code>mu</code> - это массивы, они содержат внутри себя другие документы.</p>
+<p>Элементы <code>eps</code> - это документы, включающие следующие поля, относящиеся к модификации энергии активации реакции:</p><ol type="1">
+<li><code>intermediates</code> - массив документов, описывающих состояние поверхности, для которого будет указано новое значение энергии активации. Содержит обязательные поля: 1.1. <code>name</code> - название интермедиата 1.2 <code>coverage</code> - покрытие (доля покрытия) интермедиатом поверхности</li>
+<li><code>E</code> или effect - новое значение энергии активации, или ее изменение по сравнению с чистой, незанятой поверхностью. Пример: <div class="fragment"><div class="line"><span class="stringliteral">&quot;eps&quot;</span> : [ { <span class="stringliteral">&quot;intermediates&quot;</span> : [ { <span class="stringliteral">&quot;name&quot;</span> : <span class="stringliteral">&quot;NO(*)&quot;</span>, <span class="stringliteral">&quot;coverage&quot;</span> : <span class="stringliteral">&quot;0.25&quot;</span> } ], <span class="stringliteral">&quot;E&quot;</span> : <span class="stringliteral">&quot;1.88&quot;</span> } ] </div></div><!-- fragment --> Данный документ <code>eps</code> содержит информацию о том, что</li>
+</ol>
+<ul>
+<li>при доле покрытия поверхности интермедиатом NO(*), равной 0.25, энергия активации реакции равна 1.88 у.е.</li>
+</ul>
+<p>Можно указать не абсолютное значение энергии активации, а ее изменение по сравнению <b> с чистой (полностью вакантной) поверхностью </b> следующим образом: </p><div class="fragment"><div class="line"><span class="stringliteral">&quot;eps&quot;</span> : [ { <span class="stringliteral">&quot;intermediates&quot;</span> : [ { <span class="stringliteral">&quot;name&quot;</span> : <span class="stringliteral">&quot;NO(*)&quot;</span>, <span class="stringliteral">&quot;coverage&quot;</span> : <span class="stringliteral">&quot;0.5&quot;</span> } ], <span class="stringliteral">&quot;effect&quot;</span> : <span class="stringliteral">&quot;-0.14&quot;</span> } ] </div></div><!-- fragment --><p> В приведенном фрагменте кода указывается, что при доле покрытия поверхности интермедиатом NO(*), равной 0.5, энергия активации реакции уменьшается на 0.14 у.е. Данный пример подразумевает, что с помощью Eunits заданы единицы "eV".</p>
+<p>Аналогичный формат записи применяется и для модификатора <code>eta:</code> </p><div class="fragment"><div class="line"><span class="stringliteral">&quot;eta&quot;</span> : [ { <span class="stringliteral">&quot;intermediates&quot;</span> : [ { <span class="stringliteral">&quot;name&quot;</span> : <span class="stringliteral">&quot;O(*)&quot;</span>, <span class="stringliteral">&quot;coverage&quot;</span> : <span class="stringliteral">&quot;0.25&quot;</span> } ], <span class="stringliteral">&quot;effect&quot;</span> : <span class="stringliteral">&quot;-0.1663&quot;</span> } ] </div></div><!-- fragment --><p> Запись означает, что начальное значение <code>A/S0</code> будет изменено таким образом, что разность десятичных логарифмов измененного значения и начального будет равна указанному числу (-0.1663) при покрытии поверхности интермедиатом O(*), равным 0.25. Иными словами: \(-0.1663 = log_{10}(0.6/0.88)\).</p>
+<p>Заметим, что для <code>eta</code> и <code>mu</code> можно указывать только величину изменения параметра с помощью <code>effect</code>.</p>
+<p>На данный момент, если в массиве <code>"intermediates"</code> содержатся несколько записей, то есть <code>effect/E</code> соответствует покрытию поверхности сразу несколькими адсорбатами с указанными степения покрытия, то при определении величины <code>eps</code> значение <code>effect/E</code> будет приписано независимо к каждому адсорбату, как если бы было две отдельных записи в массиве eps: </p><div class="fragment"><div class="line"><span class="stringliteral">&quot;eps&quot;</span> : [ { <span class="stringliteral">&quot;intermediates&quot;</span> : [ { <span class="stringliteral">&quot;name&quot;</span> : <span class="stringliteral">&quot;CO(*)&quot;</span>, <span class="stringliteral">&quot;coverage&quot;</span> : <span class="stringliteral">&quot;0.2&quot;</span> }, { <span class="stringliteral">&quot;name&quot;</span> : <span class="stringliteral">&quot;NO(*)&quot;</span>, <span class="stringliteral">&quot;coverage&quot;</span> : <span class="stringliteral">&quot;0.5&quot;</span> } ], <span class="stringliteral">&quot;effect&quot;</span> : <span class="stringliteral">&quot;-0.14&quot;</span> } ] </div></div><!-- fragment --><p> будет трактоваться равносильно </p><div class="fragment"><div class="line"><span class="stringliteral">&quot;eps&quot;</span> : [ { <span class="stringliteral">&quot;intermediates&quot;</span> : [ { <span class="stringliteral">&quot;name&quot;</span> : <span class="stringliteral">&quot;CO(*)&quot;</span>, <span class="stringliteral">&quot;coverage&quot;</span> : <span class="stringliteral">&quot;0.2&quot;</span> } ], <span class="stringliteral">&quot;effect&quot;</span> : <span class="stringliteral">&quot;-0.14&quot;</span> }, { <span class="stringliteral">&quot;intermediates&quot;</span> : [ { <span class="stringliteral">&quot;name&quot;</span> : <span class="stringliteral">&quot;NO(*)&quot;</span>, <span class="stringliteral">&quot;coverage&quot;</span> : <span class="stringliteral">&quot;0.5&quot;</span> } ], <span class="stringliteral">&quot;effect&quot;</span> : <span class="stringliteral">&quot;-0.14&quot;</span> } ] </div></div><!-- fragment --><p> Этот недостаток неустраним до тех пор, пока coverage-модификаторы не будут приписываться к взаимодействующим адсорбатам (и переходному состоянию), а не к отдельным реакционным стадиям. <br />
+ Coverage-модификаторы для взаимодействующих адсорбатов означает, что присутствие одного адсорбата влияет на химическую связь (и реакционную способность) другого адсорбата (второй вариант - на структуру/свойства переходного состояния).</p>
+<p>Если в спецификации <code>eps</code> не указано ни <code>effect</code>, ни <code>E</code>, то при обработке такой записи с помощью <em>mech_optimiz</em> будет выдана ошибка.</p>
+<p>Если в записи <code>"forward"</code> или <code>"backward"</code> из базы данных содержится информация о coverage-зависимости <code>eps</code>, то значение энергии активации <code>E</code> на внешнем уровне вложенности записи (где указываются величины p A, <code>Aunits</code> и др.) также должно быть задано. В случае отсутствия последнего будет проведена экстраполяция значения энергии активации на нулевое заполнение поверхности по имеющимся данным при заполнении, отличном от нулевого (т.е., eps). Экстраполяция выполняется с помощью полинома Ньютона. Если число узловых точек (значения eps) меньше двух, то достоверная экстраполяция зависимости энергии активации от степени заполнения поверхности невозможна, и данная запись о реакции не используется <em>mech_optimiz</em>.</p>
+<h2><a class="anchor" id="dbreact2_4"></a>
+Реагенты "reactants" и продукты "products"</h2>
+<dl class="section user"><dt>Правила записи реагентов и продуктов:</dt><dd><ol>
+<li>
+Поля "reactants" и "products" являются массивами. </li>
+<li>
+Реагенты и продукты должны быть записаны аналогично тому, как они записаны в поле "реакция" (реагенты в указанном поле находятся слева от знака равенства, а продукты - справа). </li>
+<li>
+Порядок записи элементов внутри массива не важен.</li>
+</ol>
+</dd></dl>
+<h2><a class="anchor" id="dbreact2_5"></a>
+Материал катализатора "material"</h2>
+<p>Документ <code>material</code> содержит информацию о материале катализатора. </p><div class="fragment"><div class="line"><span class="stringliteral">&quot;material&quot;</span> : { <span class="stringliteral">&quot;name&quot;</span> : <span class="stringliteral">&quot;Pt&quot;</span>, <span class="stringliteral">&quot;face&quot;</span> : <span class="stringliteral">&quot;111&quot;</span>, <span class="stringliteral">&quot;type&quot;</span>: <span class="stringliteral">&quot;surface&quot;</span>} </div></div><!-- fragment --><p> Приведенная запись соответсвует информации о том, что исследовалась (111)-плоскость Pt. Тип type может иметь значения surface (для индивидуальных плоскостей), cluster (для кластеров атомов, включающих множество кристаллографических плоскостей). face принимает значения, равные индексам Миллера для плоскости (без скобок), или значение poly для поликристаллического катализатора.</p>
+<h2><a class="anchor" id="dbreact2_6"></a>
+Метод получения информации о кинетике процесса "method"</h2>
+<p>Записывается информация о методе получения данных - DFT, microcalorimetry, EELS, kinetic fit (если параметры подобраны подгонкой кривых по результатам эксперимента), kinetic model (если составлялась детальная модель по литературным данным и, возможно, собственным экспериментам, и использовано более одного источника информации), molecular beam study. Если метод получения данных не указан в данном списке, информация может быть записана пользователем в произвольном виде.</p>
+<h2><a class="anchor" id="dbreact2_7"></a>
+Ссылка на литературный источник и комментарий</h2>
+<p>Библиографическая ссылка дается в поле "ref", используется APA-стиль. Используйте возможность <code>Google Scholar - Цитировать - APA</code> для быстрого получения библиографической ссылки. <br />
+ Поле "doi" необходимо заполнять цифровым идентификатором объекта DOI (если есть) источника информации. <br />
+ Поле "comment" может содержать комментарии, поясняющие данную запись, например, методику получения данных.</p>
+<h2><a class="anchor" id="dbreact2_8"></a>
+Пример записи из базы данных</h2>
+<div class="fragment"><div class="line">{ <span class="stringliteral">&quot;reaction&quot;</span> : <span class="stringliteral">&quot;NO(*) = Pt(*) + NO&quot;</span>, <span class="stringliteral">&quot;reactants&quot;</span> : [<span class="stringliteral">&quot;NO(*)&quot;</span>], <span class="stringliteral">&quot;products&quot;</span> : [<span class="stringliteral">&quot;Pt(*)&quot;</span>, <span class="stringliteral">&quot;NO&quot;</span>], <span class="stringliteral">&quot;material&quot;</span> : { <span class="stringliteral">&quot;name&quot;</span> : <span class="stringliteral">&quot;Pt&quot;</span>, <span class="stringliteral">&quot;face&quot;</span> : <span class="stringliteral">&quot;111&quot;</span>, <span class="stringliteral">&quot;type&quot;</span>: <span class="stringliteral">&quot;surface&quot;</span> }, <span class="stringliteral">&quot;forward&quot;</span> : { <span class="stringliteral">&quot;Enuits&quot;</span> : <span class="stringliteral">&quot;eV&quot;</span>, <span class="stringliteral">&quot;eps&quot;</span> : [ { <span class="stringliteral">&quot;intermediates&quot;</span> : [ { <span class="stringliteral">&quot;name&quot;</span> : <span class="stringliteral">&quot;NO(*)&quot;</span>, <span class="stringliteral">&quot;coverage&quot;</span> : <span class="stringliteral">&quot;0.25&quot;</span> } ], <span class="stringliteral">&quot;E&quot;</span> : <span class="stringliteral">&quot;1.88&quot;</span> }, { <span class="stringliteral">&quot;intermediates&quot;</span> : [ { <span class="stringliteral">&quot;name&quot;</span> : <span class="stringliteral">&quot;NO(*)&quot;</span>, <span class="stringliteral">&quot;coverage&quot;</span> : <span class="stringliteral">&quot;0.5&quot;</span> } ], <span class="stringliteral">&quot;E&quot;</span> : <span class="stringliteral">&quot;1.42&quot;</span> }, { <span class="stringliteral">&quot;intermediates&quot;</span> : [ { <span class="stringliteral">&quot;name&quot;</span> : <span class="stringliteral">&quot;NO(*)&quot;</span>, <span class="stringliteral">&quot;coverage&quot;</span> : <span class="stringliteral">&quot;0.75&quot;</span> } ], <span class="stringliteral">&quot;E&quot;</span> : <span class="stringliteral">&quot;1.05&quot;</span> } ] }, <span class="stringliteral">&quot;method&quot;</span> : <span class="stringliteral">&quot;DFT&quot;</span>, <span class="stringliteral">&quot;ref&quot;</span> : <span class="stringliteral">&quot;Farberow, C. A., Dumesic, J. A., &amp; Mavrikakis, M. (2014). Density functional theory calculations and analysis of reaction pathways for reduction of nitric oxide by hydrogen on Pt (111). ACS Catalysis, 4(10), 3307-3319.&quot;</span>, <span class="stringliteral">&quot;doi&quot;</span>: <span class="stringliteral">&quot;10.1021/cs500668k&quot;</span>} </div></div><!-- fragment --><p> Запись содержит информацию об энергии активации реакции десорбции NO с поверхности Pt(111), полученную с помощью DFT указнными выше авторами в 2014 году.</p>
+<dl class="section user"><dt>Цитированная литература</dt><dd>[1] - Coltrin, M. E., Kee, R. J., Rupley, F. M., &amp; Meeks, E. (2000). SURFACE CHEMKIN-A software package for the analysis of heterogeneous chemical kinetics at a solid-surface&ndash;gas-phase interface. Reaction Design, SUR-036-1.) </dd></dl>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Документация по mech_optimiz. Последние изменения: Сб 21 Янв 2017 21:23:52. Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+  </ul>
+</div>
+</body>
+</html>

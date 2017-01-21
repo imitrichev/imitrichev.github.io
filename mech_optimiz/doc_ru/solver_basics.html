@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>mech_optimiz: Устройства решателей в mech_optimiz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_extra.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Mech-2.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">mech_optimiz
+   &#160;<span id="projectnumber">4.4.1</span>
+   </div>
+   <div id="projectbrief">microkinetic mechanism investigation tool</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="pages.html"><span>Описания</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('solver_basics.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Устройства решателей в mech_optimiz </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>Решатель - часть программы, отдельная программа или библиотека, реализующая решение одного или нескольких уравнений.</p>
+<p>В отношении <em>mech_optimiz</em> мы будем понимать под словом "решатель" часть программы (модуль, класс...), который отвечает за решение уравнений химической кинетики и переноса и расчет конверсии в реакторе. </p>
+<h1><a class="anchor" id="cstrsolver_basics"></a>
+Решатель модели реактора неподвижного каталитического слоя</h1>
+<p>Здесь мы представим математическую модель реактора, программно реализованную в классе cstrsolver, опишем алгоритм ее решения и детали программной реализация алгоритма.</p>
+<p>Мы рассматриваем ячеечную модель реактора неподвижного каталитического слоя. Другое название ячеечной модели - каскад реакторов идеального смешения (РИС-к).</p>
+<p>Каждая ячейка представляет собой ячейку идеального смешения (ИС). Модель реактора идеального вытеснения является частным случаем ячеечной модели, когда число ячеек стремится к бесконечности. В практических случаях, можно говорить о математической модели реактора идеального вытеснения (РИВ), когда в расчете используется более 100 последовательных ячеек.</p>
+<p>Для того, чтобы найти стационарные значения концентраций газофазных веществ в каждой ячейке, применяется метод установления по концентрации. Так как система уравнений химической кинетики обычно является сильно жесткой по изменению концентраций некоторых интермедиатов, то интегрирование в неявном решателе выполняется итерационно, причем на каждой итерации выделяются два этапа.</p>
+<p><em> Первый этап </em> - интегрирование до установления концентраций интермедиатов при фиксированных концентрациях газофазных веществ в текущей расчетной ячейке. Начало расчета на этапе соответствует внутреннему времени системы уравнений задачи t=0. Критерий останова - ошибка установления скоростей образования и расходования интермедиатов, т.е., здесь, относительная ошибка скорости изменения концентрации интермедиата (cdot[k] - ddot[k])/(cdot[k] + ddot[k]), менее 10^-7, при этом сумма модулей скоростей образования и расходования (cdot[k] + ddot[k]) должна быть &gt; 1e-10) - иначе, можно считать, что интермедиат незначительно изменяет свою концентрацию.</p>
+<p>Установление производится следующим образом: уравнения интегрируются по времени с помощью Cantera до dt=100.0 секунд, проверяется критерий останова. Если он не выполнен, интегрирование производится повторно. Всего - не более max_eq_it интегрирований. Число max_eq_it определяется по формуле: </p><p class="formulaDsp">
+\[37 surf-&gt;nSpecies() + surf-&gt;nSpecies() / 2\]
+</p>
+<p>, где \(surf-&gt;nSpecies()\) - число поверхностных интермедиатов. Если за <em>max_eq_it</em> интегрирований стационарное состояние не достигнуто, признается, что оно отсутствует в данной системе (нестационарный процесс), решатель выбрасывает исключение CanteraError "Equilibrium". Также, аналогичное исключение будет выброшено, если после очередного интегрирования периода <em>dt</em> = 100.0 секунд внутреннего времени системы уравнений задачи будет установлено, что реальное время (по настенным часам, walltime), затраченное на итерационный процесс первого этапа при интегрировании от <em>t</em> = 0, составило 30 секунд или более.</p>
+<p>Соответственно, по окончании интегрирования, пересчитывается источниковый член (реакция) в уравнении переноса компонентов. <em> Второй этап </em> - пересчет концентрации газофазных веществ с учетом источникового члена, полученного на первом этапе. Процесс итерации "первый-второй этап" продолжается до тех пор, пока концентрации газофазных веществ не установятся с заданной точностью <a class="el" href="solver_basics.html#mole1">(1)</a>.</p>
+<p>В явном решателе, итерационный процесс "первый-второй этап" отсутствует, таким образом, значения, полученные на единственной итерации "первый-второй этап" принимаются как окончательные для ячейки реактора.</p>
+<p>Необходимо отметить, что в начальный момент реакции мгновенные значения скоростей по веществам могут принимать огромные значения, и источниковый член, рассчитанный на их основании, будет приводить к расчету отрицательных значений концентраций газофазных веществ. Отрицательные значения концентраций являются нефизическими, более того, приведут к расхождению Cantera в следующей ячейке или на следующей итерации (для неявного метода решения). Для того чтобы избежать отрицательных значений переменных, создаются методы положительного интегрирования, например, методы отсечения отрицательных концентраций. Однако они приводят к нарушению закона сохранения массы, являются неконсервативными. Другой, более сложный класс методов - проекционные (см. <a class="el" href="citelist.html#CITEREF_sandu2001positive">[11]</a>).</p>
+<p>Мы использовали собственный метод положительного интегрирования. Скорости по веществам пропорциональны друг другу с учетом стехиометрии системы, поэтому, мы уменьшаем скорости по веществу пропорционально стехиометрии до тех пор, пока новые значения концентраций всех газофазных веществ не станут положительными числами. В неявном решателе, помимо этого производится предохранение от разболтки решения: если решение (новые концентрации в ячейке) после итерации "первый-второй этап" находятся вне границ, в которых они уже изменялись в разные стороны, то делается шаг некоторого размера по концентрациям в сторону решения (например: при начальном значении концентрации изменялись в сторону уменьшения, при 0.1 - в сторону увеличения, и потом получаем решение 0.05 менее 0.1 – значит, будет сделан шаг в сторону 0.05, при этом лежащий в границах от начального решения до 0.1). Размер шага уменьшается с итерацией алгоритма (уточнить! там немного сложнее еще).</p>
+<p>Интегрирование интермедиатов и газофазных веществ по отдельности связано с идеей выделения быстрой (интермедиаты) и медленной (газы) подсистем. Можно выделить еще несколько подсистем, создавая вложенную систему циклов, где в каждом цикле изменяются только концентрации веществ данного уровня и вложенных уровней, при этом на каждой итерации для данного уровня выполняется установление концентраций следующего уровня вложенности. Так, цикл установления (как для явного, так и для неявного решателя) может быть добавлен для отдельного интегрирования концентраций в сплошной фазе катализатора (bulk). При этом, изменение концентраций поверхностных интермедиатов будет рассчитываться во вложенном цикле, а газофазных веществ - во внешнем по сравнению с bulk-циклом.</p>
+<p>Еще один уровень вложенности для расчета стационарных значений концентраций в данной ячейке, внешний по отношению к расчету концентраций газофазных веществ по уравнению переноса концентраций, есть уровень изменения температуры в ячейке. Для изотермического реактора это уровень отсутствует.</p>
+<p>Наконец, надо отметить, что вышесказанное описание итерационных процессов и циклов относилось только к одной ячейке. Рассчитанные значения концентраций в n-ой ячейке используются как входные концентрации в n+1 ячейку. Расчет оканчивается, когда n=N, где N - число ячеек модели.</p>
+<p><a class="anchor" id="mole1"></a>1. Уточним, что решение на этом этапе осуществляется по уравнениям, сформулированным относительно мольных долей компонентов газовой смеси. </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Документация по mech_optimiz. Последние изменения: Сб 21 Янв 2017 21:23:52. Создано системой
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+  </ul>
+</div>
+</body>
+</html>

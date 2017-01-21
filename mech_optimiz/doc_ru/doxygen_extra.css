@@ -1,0 +1,29 @@
+/* Extra CSS for doxygen 
+*/
+
+h1 {
+	font-size: 20px;
+	color:#BB5615;
+}
+
+h2 {
+	font-size: 18px;
+	color:#A0282D;
+}
+
+h3 {
+	font-size: 16px;
+	color:#8b2282;
+}
+
+a { color: #0f6427; }
+a:visited { color: #641e50; }
+.contents a:visited { color: #641e50; }
+
+div.image img[src="Scheme_mech_optimiz_1.png"]{ 
+    width:800px; 
+}
+
+div.image img[src="Scheme_mech_optimiz_2.png"]{ 
+    width:800px; 
+}
