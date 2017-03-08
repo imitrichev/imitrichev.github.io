@@ -45,10 +45,10 @@
       <div class="inner clearfix">
         <section id="main-content">
 
-          <h3> <a id="info" class="anchor" href="#info" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is mech_optimiz?
+          <h3> <a id="info" class="anchor" href="#info" aria-hidden="true"><span class="octicon octicon-link">Investigation of kinetic mechanisms of catalytic reaction with mech_optimiz</span></a>
 		  		</h3>
 					<div style="text-align:center"><img src="../images/mech_optimiz.png" alt="mech_optimiz logo" vspace="10px"><p style="text-align:center; color: red; font-style: italic">Project logo</p></img></div>
-					<p><font size="6em" color="#110000">mech_optimiz</font> is a software for parameter estimation in microkinetic reaction mechanisms of catalytic processes.</p>
+					<p><font size="6em" color="#110000">What is mech_optimiz?</font> mech_optimiz is a software for parameter estimation in microkinetic reaction mechanisms of catalytic processes.</p>
 					<p>It could be used by scientists to build and verify kinetic models as well as by engineers to create detailed
                     and lumped kinetic models that could be incorporated into modern CFD codes (FLUENT, COMSOL, Star-CCM+).</p>
 					<p>The distinctive features are:
@@ -62,26 +62,30 @@
 					<li>A set of inbuilt useful tools</li>
 					</ul>
                    	</p>
-                    <p style="text-align:center; color: red; font-style: italic">
-					DOCUMENTATION for mech_optimiz
+                    <p style="text-align:left; color: red; font-style: italic"; font-size: "5em">
+					Documentation for mech_optimiz
+					</font>
 					</p>
-					v. 4.4.1 is current.
+					<p>v. 4.4.1 is current.
 					<a href="doc_ru/index.html">Russian documentation is freely available here.</a>
 					English documentation will appear after some time.
 					</p>
-					<p style="text-align:center; color: red; font-style: italic">
+					<p style="text-align:left; color: red; font-style: italic"; font-size: "5em">
 					Kinetic mechanisms obtained with the use of mech_optimiz
 					</p>
 					The work in the field of microkinetic reaction mechanisms
-					was inspired by reading publications of prof. O. Deutschmann 
+					was inspired by reading the publications of prof. O. Deutschmann 
 					and <a href="http://detchem.com/mechanisms">his site with kinetic mechanisms</a>.
 					<br>
 					Currently we investigate only surface catalytic reactions
 					with gas-phase reactants and products.
 					<br>
 					All kinetic mechanisms (SURFACE CHEMKIN(R) .inp input files format) available below
-					were tested in mech_optimiz and are thermodynamically consistent in the
-					conditions of application.
+					were tested in mech_optimiz. They are thermodynamically consistent in the range of
+					application. For example,
+					for kinetic mechanism of preferntial oxidation of CO given below, at specific temperature
+					and standard pressure, among all reactions, maximal deltaH inconsistency
+					is about 2 kJ/mol, and maximal deltaS incosistency is about 3 J/(mol K).
 					<br>For thermodynamic consistency algorithm description, see our work <br><em>
 					Mitrichev I.I., Jhensa A.V., Koltsova E.M. Thermodynamic criteria for estimating
 					the kinetic parameters of catalytic reactions // Russian Journal of Physical Chemistry A,
@@ -97,7 +101,7 @@
 					(link)</a>
 					<br>Tested for 570-900 K range, standard pressure.
 					<br> Citation: Mitrichev I. Modeling and optimization of catalytic processes of CO oxidation with the use of detailed kinetic reaction mechanisms (in Russian). Phd Thesis. Moscow, D. Mendeleyev University of Chemical Technology of Russia, 2017.
-					<br> Article reference will appear later.
+					<br> Article reference will appear soon.
 					<br><a href="NOCO_Pt.zip">Download.</a>
 					</p>
 					</li>
@@ -110,16 +114,21 @@
 					copper content ~2.5-9% wt. Cu (surface site density should
 					be varied with copper content).
 					<br> Citation: Mitrichev I. Modeling and optimization of catalytic processes of CO oxidation with the use of detailed kinetic reaction mechanisms (in Russian). Phd Thesis. Moscow, D. Mendeleyev University of Chemical Technology of Russia, 2017.
-					<br> Article reference will appear later.
-					<br> New version - dual-site mechanism.
-					<br><a href="COPROX_CuO-CeO2_dual_site.zip">Download.</a>
-					<br><em> Old version - single site mechanism (worse prediction abilities)
-					<br><a href="COPROX_CuO-CeO2.zip">Download.</a></em>
+					<br> Article reference will appear soon.
+					<br> Kinetic mechanism (CO and hydrogen on single-site).
+					Reflects copper reduction from state 2+ to 0
+					with the temperature rise. Can be used in CFD calculaitons.
+					<br><a href="COPROX_CuO-CeO2.zip">Download.</a>
+					<br> <a> href="COPROX_CuO-CeO2/>View</a>
+					<br><em> Also, we provide dual-site mechanism (has worse prediction abilities,
+					and the copper reduction from 2+ to 0 was not obtained).
+					<br><a href="COPROX_CuO-CeO22_dual_site.zip">Download.</a></em>
 					</p>
 					</li>
 					</ul>
-                    <p> We kindly ask you to cite this page if using materials from this site.</p>
-					<p> If you use a kinetic mechanism, please cite the reference therein.</p>
+                    <p> According to publication ethics, you should cite the references give above,
+					if using our kinetic mechanisms.</p>
+					<p> You should cite this page if using materials from this site.</p>
         </section>
 <!--end main content-->
 
