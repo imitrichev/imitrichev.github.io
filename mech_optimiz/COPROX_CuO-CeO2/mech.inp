@@ -1,0 +1,245 @@
+MATERIAL CUOCEO2
+! Author: I. Mitrichev.
+! Copyright: I. Mitrichev, 2016-2017
+! Name: Kinetic mechanism of preferential CO oxidation.
+! Cite: 1) Mitrichev I. Modeling and optimization of catalytic processes of CO oxidation with the use of detailed kinetic reaction mechanisms (in Russian). Phd Thesis. Moscow, 2017.
+! Description: The mechanism applies to CO-PROX process at operating conditions P=1atm, T=393-525 K.
+! Also applies to low-temperature CO oxidation.
+! Kinetic parameters are thermodynamically consistent in a range 300-800 K.
+! Surface site density values for 5.7 wt% Cu catalyst (co-precipitation).
+! Initial site distribution OCuO(s) 0.013832 Cu(s2) 0.596168 CeO2(s) 0.39
+!
+! --- This kinetic mechanism was obtained by mech_optimiz ---
+!
+!  Active sites for both CO and H2 oxidation. Supposed to be copper-ceria contact sites.
+! Note, SDEN here and below should be different for catalysts with other Cu content.
+!  Copper-ceria contact sites
+SITE/COPPERCERIA/    SDEN/1.660E-11/
+CuH2O(s) CuH(s) Cu(s) OCu(s) OCuOH(s) OCuCO2(s) OCuCO(s) CuOH2O(s) CuOH(s) CuOHH(s) OCuO(s) OCuOCO(s) CuCO3(s) OCuOHH(s)
+! end statement is optional, according to Surface CHEMKIN 2000 manual
+END
+! Ceria surface
+SITE/CERIA/    SDEN/4.68E-10/
+Ce2O3(s4)/2/ CeO2(s) 
+END
+! Some species inactive in catalytic transformations at low temperatures
+SITE/CUSSBULK/    SDEN/7.154E-10/
+Cu(s2) CuO(s3)
+END
+!CATALYSTS CeO2(s)
+! (the previous line is for mech_optimiz)
+!
+!          Species oxidation state assignment
+!
+! Cu0 species: Cu(s) CuCO(s)
+! Cu+ species: OCu(s) OCuCO2(s) OCuCO(s) CuOCO(s) CuOH2O(s) CuOH(s) OCuOH(s) (probably, Ce3+ -> Ce4+ when OH- added) CuOHOCO(s) CuOHOCO(s9)
+! Cu2+ species: OCuO(s) OCuOCO(s) CuCO3(s) CuOH2O(s)
+!
+!
+!      Thermodynamic data
+!
+THERMO ALL
+   300.0   1000.0   5000.0
+CO                121286C   1O   1          G  0300.00   5000.00  1000.00      1
+ 0.03025078E+02 0.01442689E-01-0.05630828E-05 0.01018581E-08-0.06910952E-13    2
+-0.01426835E+06 0.06108218E+02 0.03262452E+02 0.01511941E-01-0.03881755E-04    3
+ 0.05581944E-07-0.02474951E-10-0.01431054E+06 0.04848897E+02                   4
+CO2               121286C   1O   2          G  0300.00   5000.00  1000.00      1
+ 0.04453623E+02 0.03140169E-01-0.01278411E-04 0.02393997E-08-0.01669033E-12    2
+-0.04896696E+06-0.09553959E+01 0.02275725E+02 0.09922072E-01-0.01040911E-03    3
+ 0.06866687E-07-0.02117280E-10-0.04837314E+06 0.01018849E+03                   4
+O2                121386O   2               G  0300.00   5000.00  1000.00      1
+ 0.03697578E+02 0.06135197E-02-0.01258842E-05 0.01775281E-09-0.01136435E-13    2
+-0.01233930E+05 0.03189166E+02 0.03212936E+02 0.01127486E-01-0.05756150E-05    3
+ 0.01313877E-07-0.08768554E-11-0.01005249E+05 0.06034738E+02                   4
+H2                121286H   2               G  0300.00   5000.00  1000.00      1
+ 0.02991423E+02 0.07000644E-02-0.05633829E-06-0.09231578E-10 0.01582752E-13    2
+-0.08350340E+04-0.01355110E+02 0.03298124E+02 0.08249442E-02-0.08143015E-05    3
+-0.09475434E-09 0.04134872E-11-0.01012521E+05-0.03294094E+02                   4
+H2O                20387H   2O   1          G  0300.00   5000.00  1000.00      1
+ 0.02672146E+02 0.03056293E-01-0.08730260E-05 0.01200996E-08-0.06391618E-13    2
+-0.02989921E+06 0.06862817E+02 0.03386842E+02 0.03474982E-01-0.06354696E-04    3
+ 0.06968581E-07-0.02506588E-10-0.03020811E+06 0.02590233E+02                   4
+Cu(s2)  REF ELEM   coda89Cu  1    0    0    0S  0200.00   1358.00  1000.00     1
+ 3.42012480E+00-1.61213570E-03 3.05161425E-06-2.11171530E-09 6.99876805E-13    2
+-9.90303972E+02-1.51934072E+01 1.76672074E+00 7.34699433E-03-1.54712960E-05    3
+ 1.50539592E-08-5.24861336E-12-7.43882087E+02-7.70454044E+00                   4
+CeO2(s)      konings2014Ce  1    O    2    0S  0260.00   2000.00  0900.00      1
+ 7.63340179E+00 3.28765631E-03 2.08971906E-06 7.86622408E-10-1.13724753E-13    2
+-1.33546148E+05-3.70796837E+01-1.63411394E+00 5.66371664E-02-1.19093012E-04    3
+ 1.15302125E-07-4.19956349E-11-1.32290149E+05 4.27394897E+00                   4
+END
+REACTIONS KJOULES/MOLE
+!**************** TC residuals *****************
+! Reaction 1 for deltaH 4.75455e+06
+! Reaction 1 for deltaS 17.4757
+! Reaction 1 for deltaG 3.3068e+06
+! Reaction 3 for deltaH 9.10712e+06
+! Reaction 3 for deltaS 5.12672
+! Reaction 3 for deltaG 3.8153e+06
+! Reaction 5 for deltaH 1.07295e+07
+! Reaction 5 for deltaS 3.48594
+! Reaction 5 for deltaG 9.76042e+06
+! Reaction 7 for deltaH 1.52282e+06
+! Reaction 7 for deltaS 6.32446
+! Reaction 7 for deltaG 3.42492e+06
+! Reaction 9 for deltaH 7.67628e-17
+! Reaction 9 for deltaS 4.10127e-22
+! Reaction 9 for deltaG 7.88242e-19
+! Reaction 11 for deltaH 731922
+! Reaction 11 for deltaS 0.111126
+! Reaction 11 for deltaG 491374
+! Reaction 13 for deltaH 359398
+! Reaction 13 for deltaS 2.65982
+! Reaction 13 for deltaG 74060
+! Reaction 15 for deltaH 1.1837e+06
+! Reaction 15 for deltaS 1.92235
+! Reaction 15 for deltaG 1.07689e+06
+! Reaction 17 for deltaH 813459
+! Reaction 17 for deltaS 5.9887
+! Reaction 17 for deltaG 3.53334e+06
+! Reaction 19 for deltaH 4.8095e+06
+! Reaction 19 for deltaS 0.341094
+! Reaction 19 for deltaG 4.15635e+06
+! Reaction 21 for deltaH 1.81879e+07
+! Reaction 21 for deltaS 42.5811
+! Reaction 21 for deltaG 6.49794e+06
+! Reaction 23 for deltaH 4.19271e+06
+! Reaction 23 for deltaS 0.0592806
+! Reaction 23 for deltaG 4.40962e+06
+! Reaction 25 for deltaH 9.58641e+06
+! Reaction 25 for deltaS 4.66771
+! Reaction 25 for deltaG 7.31077e+06
+! Reaction 27 for deltaH 2.95739e+06
+! Reaction 27 for deltaS 0.565998
+! Reaction 27 for deltaG 2.07514e+06
+! Reaction 29 for deltaH 1.9032e+06
+! Reaction 29 for deltaS 3.27714
+! Reaction 29 for deltaG 1.5521e+06
+! Reaction 31 for deltaH 1.19709e+06
+! Reaction 31 for deltaS 18.109
+! Reaction 31 for deltaG 5.43686e+06
+! Reaction 33 for deltaH 1.92766e+07
+! Reaction 33 for deltaS 18.9621
+! Reaction 33 for deltaG 6.51897e+06
+! Reaction 35 for deltaH 4.19591e+06
+! Reaction 35 for deltaS 0.616234
+! Reaction 35 for deltaG 3.56325e+06
+! Reaction 37 for deltaH 2.04672e+06
+! Reaction 37 for deltaS 7.09478
+! Reaction 37 for deltaG 162985
+! Reaction 39 for deltaH 12773
+! Reaction 39 for deltaS 17.5856
+! Reaction 39 for deltaG 3.49912e+06
+! Reaction 41 for deltaH 813459
+! Reaction 41 for deltaS 5.9887
+! Reaction 41 for deltaG 3.53334e+06
+! Reaction 43 for deltaH 520676
+! Reaction 43 for deltaS 8.23181
+! Reaction 43 for deltaG 3.64704e+06
+! Total for deltaH: 9.89027e+07
+! Total for deltaS: 171.175
+! Total for deltaG: 7.78466e+07
+!***********************************************
+!#1
+OCuO(s) + CO => OCuOCO(s)  1.904762e-02 0.000000e+00 0.000000e+00
+ STICK 
+!#2
+OCuOCO(s) => OCuO(s) + CO  1.235102e+14 0.000000e+00 2.682647e+01
+!#3
+OCuOCO(s) => OCuCO2(s)  8.487473e+13 0.000000e+00 5.529670e+01
+!#4
+OCuCO2(s) => OCuOCO(s)  2.079081e+13 0.000000e+00 1.845506e+02
+!#5
+OCuCO2(s) => OCu(s) + CO2  8.365495e+13 0.000000e+00 5.926496e+01
+!#6
+OCu(s) + CO2 => OCuCO2(s)  3.269704e-01 0.000000e+00 0.000000e+00
+ STICK 
+!#7
+OCu(s) + CO => OCuCO(s)  4.388278e-01 0.000000e+00 0.000000e+00
+ STICK 
+!#8
+OCuCO(s) => OCu(s) + CO  7.985945e+13 0.000000e+00 7.731215e+01
+!#9
+OCuCO2(s) => CuCO3(s)  3.852308e+13 0.000000e+00 3.912088e+00
+!#10
+CuCO3(s) => OCuCO2(s)  3.481495e+13 0.000000e+00 3.582418e+01
+!#11
+OCuCO(s) + 2CeO2(s) => OCuOCO(s) + Ce2O3(s4)  2.438607e+31 0.000000e+00 3.986325e+01
+!#12
+OCuOCO(s) + Ce2O3(s4) => OCuCO(s) + 2CeO2(s)  1.551268e+23 0.000000e+00 3.527418e+01
+!#13
+OCu(s) + 2CeO2(s) => OCuO(s) + Ce2O3(s4)  4.362566e+31 0.000000e+00 9.873504e+01
+!#14
+OCuO(s) + Ce2O3(s4) => OCu(s) + 2CeO2(s)  7.788563e+21 0.000000e+00 1.446316e+02
+!#15
+Cu(s) + 2CeO2(s) => OCu(s) + Ce2O3(s4)  5.869871e+30 0.000000e+00 5.132601e+01
+!#16
+OCu(s) + Ce2O3(s4) => Cu(s) + 2CeO2(s)  1.221838e+23 0.000000e+00 3.978022e+01
+!#17
+2Cu(s2) + O2 => 2CuO(s3)  6.713065e-01 0.000000e+00 0.000000e+00
+ STICK 
+!#18
+2CuO(s3) => 2Cu(s2) + O2  6.982060e+38 0.000000e+00 1.466667e+02
+!#19
+2Ce2O3(s4) + O2 => 4CeO2(s)  3.663004e-05 0.000000e+00 1.531136e+01
+ STICK 
+!#20
+4CeO2(s) => 2Ce2O3(s4) + O2  4.532538e+40 0.000000e+00 2.916989e+02
+!#21
+OCu(s) + H2O => CuOH2O(s)  8.068376e-01 0.000000e+00 0.000000e+00
+ STICK 
+!#22
+CuOH2O(s) => OCu(s) + H2O  9.890374e+14 0.000000e+00 1.022313e+02
+!#23
+OCu(s) + H2 => CuOHH(s)  8.507937e-01 0.000000e+00 2.480098e+01
+ STICK 
+!#24
+CuOHH(s) => OCu(s) + H2  2.861395e+13 0.000000e+00 9.064729e+01
+!#25
+OCuO(s) + H2 => OCuOHH(s)  1.113553e-02 0.000000e+00 4.439560e+01
+ STICK 
+!#26
+OCuOHH(s) => OCuO(s) + H2  3.040132e+12 0.000000e+00 4.267956e+01
+!#27
+OCuOHH(s) + Ce2O3(s4) => CuOHH(s) + 2CeO2(s)  3.290198e+22 0.000000e+00 7.692308e+01
+!#28
+CuOHH(s) + 2CeO2(s) => OCuOHH(s) + Ce2O3(s4)  2.520775e+31 0.000000e+00 9.880887e+01
+!#29
+CuH2O(s) => CuOHH(s)  1.893341e+13 0.000000e+00 1.398974e+02
+!#30
+CuOHH(s) => CuH2O(s)  4.324524e+14 0.000000e+00 1.053978e+02
+!#31
+Cu(s) + H2O => CuH2O(s)  1.393372e-01 0.000000e+00 2.234432e+01
+ STICK 
+!#32
+CuH2O(s) => Cu(s) + H2O  1.112933e+14 0.000000e+00 5.938262e+00
+!#33
+CuOH2O(s) => OCuOHH(s)  5.811275e+13 0.000000e+00 2.520342e+02
+!#34
+OCuOHH(s) => CuOH2O(s)  4.232009e+13 0.000000e+00 8.412406e+01
+!#35
+2Cu(s) + H2 => 2CuH(s)  2.216262e-02 0.000000e+00 4.573260e+01
+ STICK 
+!#36
+2CuH(s) => 2Cu(s) + H2  8.549034e+20 0.000000e+00 7.729955e+01
+!#37
+CuH(s) + 2CeO2(s) => CuOH(s) + Ce2O3(s4)  9.628516e+29 0.000000e+00 8.485714e+01
+!#38
+CuOH(s) + Ce2O3(s4) => CuH(s) + 2CeO2(s)  3.469342e+21 0.000000e+00 1.179405e+02
+!#39
+2Cu(s) + H2O => CuOH(s) + CuH(s)  4.121856e-03 0.000000e+00 8.434676e+01
+ STICK 
+!#40
+CuOH(s) + CuH(s) => 2Cu(s) + H2O  1.643837e+22 0.000000e+00 4.328216e+01
+!#41
+OCu(s) + OCuO(s) + H2O => 2OCuOH(s)  9.858046e-02 0.000000e+00 1.455433e+01
+ STICK 
+!#42
+2OCuOH(s) => OCu(s) + OCuO(s) + H2O  8.556094e+21 0.000000e+00 1.278974e+02
+!#43
+2CuOH(s) => OCu(s) + Cu(s) + H2O  6.857399e+22 0.000000e+00 2.912332e+01
+!#44
+OCu(s) + Cu(s) + H2O => 2CuOH(s)  9.827169e-02 0.000000e+00 2.564730e+01
+ STICK 
+END
